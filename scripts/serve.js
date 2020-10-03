@@ -1,10 +1,10 @@
-var common  = require('./common');
-var express = require('express');
+const common  = require('./common');
+const express = require('express');
 
-var app = express.createServer();
-var url = '/lib.js';
-var port = 4000;
-app.get(url, common.package.createServer());
+const app = express();
+const port = 4000;
+
+app.use(express.static('./build'));
 app.listen(port);
 
 console.log('\nYou can load stitched file from:');
